@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="642.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db2.Staff.staffListController">
+   <center>
+    <SplitPane dividerPositions="0.23102310231023102" focusTraversable="true" BorderPane.alignment="CENTER">
+      <items>
+            <AnchorPane prefHeight="640.0" prefWidth="227.0">
+               <children>
+                  <Button layoutX="11.0" layoutY="118.0" mnemonicParsing="false" onAction="#goRoomManagement" prefHeight="45.0" prefWidth="180.0" text="Hospital Room" />
+                  <Button layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#goStaffReg" prefHeight="45.0" prefWidth="180.0" text="Medical Staff Reg" />
+                  <Button layoutX="11.0" layoutY="390.0" mnemonicParsing="false" onAction="#goBillManagement" prefHeight="45.0" prefWidth="180.0" text="Bill Management" />
+                  <Button layoutX="11.0" layoutY="66.0" mnemonicParsing="false" onAction="#goStaffList" prefHeight="45.0" prefWidth="180.0" text="Medical Staff List" />
+                  <Button layoutX="11.0" layoutY="173.0" mnemonicParsing="false" onAction="#goMedicineManagement" prefHeight="45.0" prefWidth="180.0" text="Medicine" />
+                  <Button layoutX="11.0" layoutY="228.0" mnemonicParsing="false" onAction="#goDiagnoseManagement" prefHeight="45.0" prefWidth="180.0" text="Diagnose" />
+                  <Button layoutX="11.0" layoutY="444.0" mnemonicParsing="false" onAction="#goBuyManagement" prefHeight="45.0" prefWidth="180.0" text="Buy Medicine Management" />
+                  <Button layoutX="13.0" layoutY="283.0" mnemonicParsing="false" onAction="#goPatientList" prefHeight="45.0" prefWidth="180.0" text="Patient List" />
+                  <Button layoutX="13.0" layoutY="334.0" mnemonicParsing="false" onAction="#goPatientReg" prefHeight="45.0" prefWidth="180.0" text="Patient Reg" />
+               </children>
+            </AnchorPane>
+      <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="635.0" prefWidth="599.0">
+        <children>
+                  <TabPane prefHeight="640.0" prefWidth="721.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+                     <tabs>
+                        <Tab closable="false" onSelectionChanged="#refreshDoctorTable" text="Docotor">
+                           <content>
+                              <AnchorPane>
+                                 <children>
+                                    <TableView fx:id="doctorTable" prefHeight="608.0" prefWidth="559.0">
+                                      <columns>
+                                        <TableColumn fx:id="doctorIDCol" prefWidth="75.0" text="Doctor Id" />
+                                        <TableColumn fx:id="doctorNameCol" prefWidth="71.0" text="Name" />
+                                          <TableColumn fx:id="doctorSalaryCol" prefWidth="75.0" text="Salary" />
+                                          <TableColumn fx:id="doctorSpecialtyCol" prefWidth="75.0" text="Specialty" />
+                                          <TableColumn fx:id="doctorAddressCol" prefWidth="75.0" text="Address" />
+                                          <TableColumn fx:id="doctorGenderCol" prefWidth="75.0" text="gender" />
+                                          <TableColumn fx:id="doctorPhoneNumberCol" prefWidth="95.0" text="Phone Number" />
+                                      </columns>
+                                    </TableView>
+                                    <Button layoutX="590.0" layoutY="139.0" mnemonicParsing="false" onAction="#refreshDoctorTable" prefHeight="38.0" prefWidth="66.0" text="Refresh" />
+                                    <Button layoutX="590.0" layoutY="194.0" mnemonicParsing="false" onAction="#deleteDoctorRow" prefHeight="38.0" prefWidth="66.0" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab closable="false" onSelectionChanged="#refreshNurseTable" text="Nurse">
+                           <content>
+                              <AnchorPane>
+                                 <children>
+                                    <TableView fx:id="nurseTable" prefHeight="608.0" prefWidth="546.0">
+                                       <columns>
+                                          <TableColumn fx:id="nurseIDCol" prefWidth="75.0" text="Nurse ID" />
+                                          <TableColumn fx:id="nurseNameCol" prefWidth="71.0" text="Name" />
+                                          <TableColumn fx:id="nurseSalaryCol" prefWidth="75.0" text="Salary" />
+                                          <TableColumn fx:id="nurseShiftCol" prefWidth="75.0" text="Shift" />
+                                          <TableColumn fx:id="nurseAddressCol" prefWidth="75.0" text="Address" />
+                                          <TableColumn fx:id="nurseGenderCol" prefWidth="75.0" text="gender" />
+                                          <TableColumn fx:id="nursePhoneNumberCol" prefWidth="95.0" text="Phone Number" />
+                                       </columns>
+                                    </TableView>
+                                    <Button layoutX="560.0" layoutY="155.0" mnemonicParsing="false" onAction="#refreshNurseTable" prefHeight="37.0" prefWidth="70.0" text="Refresh" />
+                                    <Button layoutX="560.0" layoutY="211.0" mnemonicParsing="false" onAction="#deleteNurseRow" prefHeight="40.0" prefWidth="70.0" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+        </children>
+      </AnchorPane>
+      </items>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+    </SplitPane>
+   </center>
+</BorderPane>
